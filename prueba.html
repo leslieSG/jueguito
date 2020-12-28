@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>pacman</title>
+	<style type="text/css">
+		#les{
+			width: 400px;
+			height: 400px;
+			border: 2px blue solid;
+		}
+	</style>
+</head>
+<body>
+<canvas id="les">
+	tu navegador no funciona
+</canvas>
+<script type="text/javascript">
+	//document.write("hola");
+var A = document.getElementById("les");
+var B = A.getContext("2d");
+if (B){
+	B.fillStyle = "pink";
+	//B.fillRect(100,100,30,60);
+	B.beginPath();
+	B.arc(100,100,40,0,2*Math.PI,true);
+	B.fill();
+}else {
+	alert ("no funciono");
+}
+
+</script>
+</body>
+</html>
