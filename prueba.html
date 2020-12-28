@@ -16,14 +16,72 @@
 </canvas>
 <script type="text/javascript">
 	//document.write("hola");
+	var x,y; 
+	x = 40;
+	y = 40;
 var A = document.getElementById("les");
 var B = A.getContext("2d");
 if (B){
-	B.fillStyle = "pink";
+	B.fillStyle = "black";
 	//B.fillRect(100,100,30,60);
+
+	B.fillRect(0,0,400,400);
+
 	B.beginPath();
-	B.arc(100,100,40,0,2*Math.PI,true);
+	B.fillStyle = "pink";
+	B.arc(40,40,8,0,2*Math.PI);
 	B.fill();
+
+
+	B.fillStyle = "black";
+	B.beginPath();
+    B.moveTo(40,40);
+    B.lineTo(48,45);
+    B.lineTo(48,35);
+    B.closePath();
+    B.fill();
+
+    B.beginPath();
+	B.fillStyle = "black";
+	B.arc(40,37,2,0,2*Math.PI);
+	B.fill();
+
+	const log = document.getElementById('les');
+
+	document.addEventListener('keydown', logKey);
+
+	function logKey(e) {
+		if(e.code=="ArrowRight"){
+
+		B.fillStyle = "black";
+	//B.fillRect(100,100,30,60);
+
+	B.fillRect(0,0,400,400);
+
+	B.beginPath();
+	B.fillStyle = "pink";
+	B.arc(x,y,8,0,2*Math.PI);
+	B.fill();
+
+
+	B.fillStyle = "black";
+	B.beginPath();
+    B.moveTo(x,y);
+    B.lineTo(x+8,y+5);
+    B.lineTo(x+8,y-5);
+    B.closePath();
+    B.fill();
+
+    B.beginPath();
+	B.fillStyle = "black";
+	B.arc(x,y-3,2,0,2*Math.PI);
+	B.fill();
+	x++;
+
+
+		}
+	}
+
 }else {
 	alert ("no funciono");
 }
