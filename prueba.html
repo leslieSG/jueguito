@@ -19,6 +19,7 @@
 	var x,y; 
 	x = 40;
 	y = 40;
+	var m = -1;
 var A = document.getElementById("les");
 var B = A.getContext("2d");
 if (B){
@@ -50,10 +51,46 @@ if (B){
 
 	document.addEventListener('keydown', logKey);
 
+	mover();
+	function mover(){
+		if(m==1){
+			derecha();
+		}
+
+		if(m==2){
+			izquierda();
+		}
+
+if(m==3){
+			up();
+		}
+
+		setTimeout(mover,10);
+	}
+
 	function logKey(e) {
 		if(e.code=="ArrowRight"){
+			m = 1;
+		}
+		if(e.code=="ArrowLeft"){
+			m= 2;
+		}
+		if(e.code=="ArrowUp"){
+			m = 3;
+		}
+		if(e.code=="ArrowDown"){
+			m = 4;
+		}
+	}
 
-		B.fillStyle = "black";
+
+}else {
+	alert ("no funciono");
+}
+
+function derecha(){
+
+	B.fillStyle = "black";
 	//B.fillRect(100,100,30,60);
 
 	B.fillRect(0,0,400,400);
@@ -77,15 +114,63 @@ if (B){
 	B.arc(x,y-3,2,0,2*Math.PI);
 	B.fill();
 	x++;
-
-
-		}
-	}
-
-}else {
-	alert ("no funciono");
 }
 
+function izquierda(){
+
+	B.fillStyle = "black";
+	//B.fillRect(100,100,30,60);
+
+	B.fillRect(0,0,400,400);
+
+	B.beginPath();
+	B.fillStyle = "pink";
+	B.arc(x,y,8,0,2*Math.PI);
+	B.fill();
+
+
+	B.fillStyle = "black";
+	B.beginPath();
+    B.moveTo(x,y);
+    B.lineTo(x-8,y+5);
+    B.lineTo(x-8,y-5);
+    B.closePath();
+    B.fill();
+
+    B.beginPath();
+	B.fillStyle = "black";
+	B.arc(x,y-3,2,0,2*Math.PI);
+	B.fill();
+	x--;
+}
+
+function up(){
+
+	B.fillStyle = "black";
+	//B.fillRect(100,100,30,60);
+
+	B.fillRect(0,0,400,400);
+
+	B.beginPath();
+	B.fillStyle = "pink";
+	B.arc(x,y,8,0,2*Math.PI);
+	B.fill();
+
+
+	B.fillStyle = "black";
+	B.beginPath();
+    B.moveTo(x,y);
+    B.lineTo(x+5,y-8);
+    B.lineTo(x-5,y-8);
+    B.closePath();
+    B.fill();
+
+    B.beginPath();
+	B.fillStyle = "black";
+	B.arc(x-3,y,2,0,2*Math.PI);
+	B.fill();
+	y--;
+}
 </script>
 </body>
 </html>
